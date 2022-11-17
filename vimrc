@@ -20,6 +20,9 @@ set shiftwidth=4
 set softtabstop=4
 set tabstop=4
 
+set nu
+
+
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
@@ -670,4 +673,8 @@ autocmd BufNewFile,BufRead *.fan        set filetype=perl6
 set colorcolumn=81
 
 highlight ColorColumn ctermbg=8
+
+if filereadable("./.workspace.vim")
+    source ./.workspace.vim
+endif
 
