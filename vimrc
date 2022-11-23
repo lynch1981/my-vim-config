@@ -674,7 +674,7 @@ autocmd BufNewFile,BufRead *.fan        set filetype=perl6
 
 highlight ColorColumn ctermbg=8
 
-if filereadable("./.workspace.vim")
-    source ./.workspace.vim
+if filereadable("./.project.vim")
+    source ./.project.vim
 endif
 
