@@ -678,3 +678,19 @@ if filereadable("./.project.vim")
     source ./.project.vim
 endif
 
+" add for bash aliases
+" this line will stop vim when shell cmds return no zero value
+" set shellcmdflag=-ic
+
+" add for openresty doc
+
+" fun! RestyDoc()
+"    let wordundercursor = expand("<cword>")
+"    let cmd = "restydoc -s " . wordundercursor
+"    return cmd
+" endf
+"
+" noremap rd RestyDoc()
+"
+ noremap rd :!restydoc -s 
+
