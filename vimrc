@@ -674,6 +674,7 @@ autocmd BufNewFile,BufRead *.fan        set filetype=perl6
 
 highlight ColorColumn ctermbg=8
 
+" used to add ctags
 if filereadable("./.project.vim")
     source ./.project.vim
 endif
