@@ -679,10 +679,12 @@ if filereadable("./.project.vim")
     source ./.project.vim
 endif
 
-" add keymap for restydoc
 function! RestyDoc()
     execute "!" . "restydoc -s " . expand("<cword>")
 endfunction
 
+" add keymap for restydoc
 noremap rd :call RestyDoc()<cr>
 
+" exit term mode
+tnoremap <Esc> <C-\><C-n>
