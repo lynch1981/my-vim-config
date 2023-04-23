@@ -142,7 +142,10 @@ set bs=2
     set softtabstop=4
     set shiftwidth=4            " so ^T and << are smaller 
     set report=1                " so we our told whenever we affect more than 1 line 
-    set nomesg                  " because being talked to during an edit is aggravating
+    if v:progname !~? "nvim"
+        set nomesg                  " because being talked to during an edit is aggravating
+    endif
+
     set autoindent              " so i don't have to tab in 
 
     set wrap
@@ -683,8 +686,16 @@ function! RestyDoc()
     execute "!" . "restydoc -s " . expand("<cword>")
 endfunction
 
-" add keymap for restydoc
+" def keymap for restydoc
 noremap rd :call RestyDoc()<cr>
 
 " exit term mode
 tnoremap <Esc> <C-\><C-n>
+
+if v:progname =~? "nvim"
+    " def ternimal open keymap
+    noremap to :sp term://bash<cr>
+    autocmd TermOpen * startinsert
+else
+    noremap to :terminal<cr>
+endif
