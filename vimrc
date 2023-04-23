@@ -692,8 +692,8 @@ noremap rd :call RestyDoc()<cr>
 " exit term mode
 tnoremap <Esc> <C-\><C-n>
 
+" def ternimal open keymap
 if v:progname =~? "nvim"
-    " def ternimal open keymap
     noremap to :sp term://bash<cr>
     autocmd TermOpen * startinsert
 else
