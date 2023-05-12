@@ -694,7 +694,8 @@ tnoremap <Esc> <C-\><C-n>
 
 " def ternimal open keymap
 if v:progname =~? "nvim"
-    noremap to :sp term://bash<cr>
+    noremap to :sp  term://bash<cr>
+    noremap tv :vsp term://bash<cr>
     autocmd TermOpen * startinsert
 else
     noremap to :terminal<cr>
