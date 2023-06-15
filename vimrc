@@ -694,9 +694,35 @@ tnoremap <Esc> <C-\><C-n>
 
 " def ternimal open keymap
 if v:progname =~? "nvim"
-    noremap to :sp  term://bash<cr>
-    noremap tv :vsp term://bash<cr>
+    noremap te :sp  term://bash<cr>
+    noremap to :vsp term://bash<cr>
     autocmd TermOpen * startinsert
 else
-    noremap to :terminal<cr>
+    noremap te :terminal<cr>
 endif
+
+function! AddCommentPrefix(comment)
+    let start_line = line("'<")
+    let end_line = line("'>")
+
+    for line_number in range(start_line, end_line)
+        let line_text = getline(line_number)
+        let modified_line = a:comment . line_text
+        call setline(line_number, modified_line)
+    endfor
+endfunction
+
+function! RemoveComments()
+    let start_line = line("'<")
+    let end_line = line("'>")
+
+    for line_number in range(start_line, end_line)
+        let line_text = getline(line_number)
+        let line_without_comment = substitute(line_text, '\v\s*//.*$', '', '')
+        call setline(line_number, line_without_comment)
+    endfor
+endfunction
+
+" def keymap for add/remove comment
+" noremap <C-/> :call AddCommentPrefix("//")<cr>
+
