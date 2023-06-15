@@ -264,7 +264,9 @@ set bs=2
     "colorscheme habiLight
     "colorscheme proton
     "colorscheme blueshift
-    "colorscheme desert
+    if &diff
+        colorscheme desert
+    endif
 " }}}
 " Folding: {{{
     set foldmethod=marker
