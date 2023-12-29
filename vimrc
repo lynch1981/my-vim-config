@@ -675,6 +675,7 @@ match WhiteSpaceEOL /\s$/
 autocmd WinEnter * match WhiteSpaceEOL /\s$/
 
 autocmd BufNewFile,BufRead *.fan        set filetype=perl6
+autocmd BufNewFile,BufRead *.y          set filetype=c
 "set colorcolumn=81
 
 highlight ColorColumn ctermbg=8
