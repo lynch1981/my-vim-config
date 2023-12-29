@@ -721,6 +721,13 @@ autocmd BufNewFile,BufRead *.y call matchadd("Define", "##yendexe")
 autocmd BufNewFile,BufRead *.y call matchadd("Define", "##yexeonly")
 autocmd BufNewFile,BufRead *.y call matchadd("Define", "##nosym")
 autocmd BufNewFile,BufRead *.y call matchadd("Define", "##reset")
+
+" highlight buildin 'class' for Ylang
+autocmd BufNewFile,BufRead *.y call matchadd("Structure", "_timer")
+autocmd BufNewFile,BufRead *.y call matchadd("Structure", "_scheduler")
+autocmd BufNewFile,BufRead *.y call matchadd("Structure", "_syscall")
+autocmd BufNewFile,BufRead *.y call matchadd("Structure", "_process")
+
 " end
 
 highlight ColorColumn ctermbg=8
