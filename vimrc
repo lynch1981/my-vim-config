@@ -678,6 +678,16 @@ autocmd BufNewFile,BufRead *.fan        set filetype=perl6
 autocmd BufNewFile,BufRead *.y          set filetype=c
 "set colorcolumn=81
 
+"highlight type for Ylan
+call matchadd("Type", "_str")
+call matchadd("Type", "_split")
+call matchadd("Type", "_agg")
+
+"highlight keywork for Ylan
+call matchadd("Keyword", "_oneshot")
+call matchadd("Keyword", "_target")
+call matchadd("Keyword", "_probe")
+
 highlight ColorColumn ctermbg=8
 
 " used to add ctags
