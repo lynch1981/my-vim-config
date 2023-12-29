@@ -675,18 +675,23 @@ match WhiteSpaceEOL /\s$/
 autocmd WinEnter * match WhiteSpaceEOL /\s$/
 
 autocmd BufNewFile,BufRead *.fan        set filetype=perl6
-autocmd BufNewFile,BufRead *.y          set filetype=c
 "set colorcolumn=81
 
-"highlight type for Ylan
-call matchadd("Type", "_str")
-call matchadd("Type", "_split")
-call matchadd("Type", "_agg")
+"
+" Ylan setting begin
+"
+autocmd BufNewFile,BufRead *.y          set filetype=c
 
-"highlight keywork for Ylan
-call matchadd("Keyword", "_oneshot")
-call matchadd("Keyword", "_target")
-call matchadd("Keyword", "_probe")
+" highlight type for Ylan
+autocmd BufNewFile,BufRead *.y call matchadd("Type", "_str")
+autocmd BufNewFile,BufRead *.y call matchadd("Type", "_split")
+autocmd BufNewFile,BufRead *.y call matchadd("Type", "_agg")
+
+" highlight keywork for Ylan
+autocmd BufNewFile,BufRead *.y call matchadd("Keyword", "_oneshot")
+autocmd BufNewFile,BufRead *.y call matchadd("Keyword", "_target")
+autocmd BufNewFile,BufRead *.y call matchadd("Keyword", "_probe")
+" end
 
 highlight ColorColumn ctermbg=8
 
