@@ -677,44 +677,53 @@ autocmd WinEnter * match WhiteSpaceEOL /\s$/
 autocmd BufNewFile,BufRead *.fan        set filetype=perl6
 "set colorcolumn=81
 
-
-
 "
 " Ylang setting begin
 "
 autocmd BufNewFile,BufRead *.y          set filetype=c
+let ignore_comment = '\%(//.*\)\@<!\('
 
 " highlight type for Ylang
-autocmd BufNewFile,BufRead *.y call matchadd("Type", '_str\|_split\|_agg')
+let y_type = '_str\|_split\|_agg'
+let y_type = ignore_comment . y_type . '\)'
+autocmd BufNewFile,BufRead *.y call matchadd("Type", y_type)
 
-" highlight keywork for Ylang
-autocmd BufNewFile,BufRead *.y call matchadd("Keyword",
- \ '_oneshot\|_target\|_probe')
+" highlight keyword for Ylang
+let y_keyword = '_oneshot\|_target\|_probe'
+let y_keyword = ignore_comment . y_keyword . '\)'
+autocmd BufNewFile,BufRead *.y call matchadd("Keyword", y_keyword)
 
 " highlight Macros for Ylang
-autocmd BufNewFile,BufRead *.y call matchadd("Define",
+let y_macros =
  \ '##ifdefvar\|##ifndefvar\|##elifdefvar\|##elifndefvar\|
  \ ##ifdefenum\|##ifndefenum\|##elifdefenum\|##elifndefenum\|
  \ ##ifdeffunc\|##ifndeffunc\|##elifdeffunc\|##elifndeffunc\|
  \ ##else\|##endif\|##error\|
  \ ##ifdeffield\|##ifndeffield\|##elifdeffield\|##elifndeffield\|
  \ ##ifdeftype\|##ifndeftype\|##elifdeftype\|##elifndeftype\|
- \ ##yexe\|##yendexe\|##yexeonly\|##nosym\|##reset')
+ \ ##yexe\|##yendexe\|##yexeonly\|##nosym\|##reset'
+let y_macros = ignore_comment . y_macros . '\)'
+autocmd BufNewFile,BufRead *.y call matchadd("Define",y_macros)
 
 " highlight buildin 'class' for Ylang
-autocmd BufNewFile,BufRead *.y call matchadd("Structure",
-  \ '_timer\|_scheduler\|_syscall\|_process')
+let y_class = '_timer\|_scheduler\|_syscall\|_process'
+let y_class = ignore_comment . y_class . '\)'
+autocmd BufNewFile,BufRead *.y call matchadd("Structure", y_class)
 
 " highlight buildin fuction for Ylang
-autocmd BufNewFile,BufRead *.y call matchadd("Define",
-  \ '_reg\|_pc_reg\|_sp_reg\|_tostr\|_tostr_quoted\|_contains\|_isprefix\|
+let y_func =
+  \  '_reg\|_pc_reg\|_sp_reg\|_tostr\|_tostr_quoted\|_contains\|_isprefix\|
   \ _issuffix\|_substr\|_strtol\|_warn\|_error\|_exit\|_push\|_pop\|_shift\|
   \ _unshift\|_elems\|printf\|sprintf\|assert\|_now_s\|_now_ms\|_now_us\|
   \ _now_ns\|_uaddr\|_len\|_randint\|_log2\|_chop_token\|_max\|_variance\|
   \ _min\|_sum\|_avg\|_count\|_hist_log\|_ubt\|_ubt2\|_sym_ubt\|_usym\|_print\|
   \ puts\|fabs\|fabsf\|fmod\|fmodf\|remainder\|remainderf\|sqrt\|sqrtf\|_pid\|
-  \ _tid\|_pgid\|_actions\|_arg_long\|_execname')
+  \ _tid\|_pgid\|_actions\|_arg_long\|_execname'
+let y_func = ignore_comment . y_func . '\)'
+autocmd BufNewFile,BufRead *.y call matchadd("Define", y_func)
+"
 " end
+"
 
 highlight ColorColumn ctermbg=8
 
