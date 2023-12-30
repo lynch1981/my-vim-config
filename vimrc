@@ -681,6 +681,7 @@ autocmd BufNewFile,BufRead *.fan        set filetype=perl6
 " Ylang setting begin
 "
 autocmd BufNewFile,BufRead *.y          set filetype=c
+
 let ignore_comment = '\%(//.*\)\@<!\('
 
 " highlight type for Ylang
@@ -703,7 +704,7 @@ let y_macros =
  \ ##ifdeftype\|##ifndeftype\|##elifdeftype\|##elifndeftype\|
  \ ##yexe\|##yendexe\|##yexeonly\|##nosym\|##reset'
 let y_macros = ignore_comment . y_macros . '\)'
-autocmd BufNewFile,BufRead *.y call matchadd("Define",y_macros)
+autocmd BufNewFile,BufRead *.y call matchadd("Define", y_macros)
 
 " highlight buildin 'class' for Ylang
 let y_class = '_timer\|_scheduler\|_syscall\|_process'
@@ -712,7 +713,7 @@ autocmd BufNewFile,BufRead *.y call matchadd("Structure", y_class)
 
 " highlight buildin fuction for Ylang
 let y_func =
-  \  '_reg\|_pc_reg\|_sp_reg\|_tostr\|_tostr_quoted\|_contains\|_isprefix\|
+  \ '_reg\|_pc_reg\|_sp_reg\|_tostr\|_tostr_quoted\|_contains\|_isprefix\|
   \ _issuffix\|_substr\|_strtol\|_warn\|_error\|_exit\|_push\|_pop\|_shift\|
   \ _unshift\|_elems\|printf\|sprintf\|assert\|_now_s\|_now_ms\|_now_us\|
   \ _now_ns\|_uaddr\|_len\|_randint\|_log2\|_chop_token\|_max\|_variance\|
