@@ -677,57 +677,43 @@ autocmd WinEnter * match WhiteSpaceEOL /\s$/
 autocmd BufNewFile,BufRead *.fan        set filetype=perl6
 "set colorcolumn=81
 
+
+
 "
-" Ylan setting begin
+" Ylang setting begin
 "
 autocmd BufNewFile,BufRead *.y          set filetype=c
 
-" highlight type for Ylan
-autocmd BufNewFile,BufRead *.y call matchadd("Type", "_str")
-autocmd BufNewFile,BufRead *.y call matchadd("Type", "_split")
-autocmd BufNewFile,BufRead *.y call matchadd("Type", "_agg")
+" highlight type for Ylang
+autocmd BufNewFile,BufRead *.y call matchadd("Type", '_str\|_split\|_agg')
 
-" highlight keywork for Ylan
-autocmd BufNewFile,BufRead *.y call matchadd("Keyword", "_oneshot")
-autocmd BufNewFile,BufRead *.y call matchadd("Keyword", "_target")
-autocmd BufNewFile,BufRead *.y call matchadd("Keyword", "_probe")
+" highlight keywork for Ylang
+autocmd BufNewFile,BufRead *.y call matchadd("Keyword",
+ \ '_oneshot\|_target\|_probe')
 
 " highlight Macros for Ylang
-autocmd BufNewFile,BufRead *.y call matchadd("Define", "##ifdefvar")
-autocmd BufNewFile,BufRead *.y call matchadd("Define", "##ifndefvar")
-autocmd BufNewFile,BufRead *.y call matchadd("Define", "##elifdefvar")
-autocmd BufNewFile,BufRead *.y call matchadd("Define", "##elifndefvar")
-autocmd BufNewFile,BufRead *.y call matchadd("Define", "##ifdefenum")
-autocmd BufNewFile,BufRead *.y call matchadd("Define", "##ifndefenum")
-autocmd BufNewFile,BufRead *.y call matchadd("Define", "##elifdefenum")
-autocmd BufNewFile,BufRead *.y call matchadd("Define", "##elifndefenum")
-autocmd BufNewFile,BufRead *.y call matchadd("Define", "##ifdeffunc")
-autocmd BufNewFile,BufRead *.y call matchadd("Define", "##ifndeffunc")
-autocmd BufNewFile,BufRead *.y call matchadd("Define", "##elifdeffunc")
-autocmd BufNewFile,BufRead *.y call matchadd("Define", "##elifndeffunc")
-autocmd BufNewFile,BufRead *.y call matchadd("Define", "##else")
-autocmd BufNewFile,BufRead *.y call matchadd("Define", "##endif")
-autocmd BufNewFile,BufRead *.y call matchadd("Define", "##error")
-autocmd BufNewFile,BufRead *.y call matchadd("Define", "##ifdeffield")
-autocmd BufNewFile,BufRead *.y call matchadd("Define", "##ifndeffield")
-autocmd BufNewFile,BufRead *.y call matchadd("Define", "##elifdeffield")
-autocmd BufNewFile,BufRead *.y call matchadd("Define", "##elifndeffield")
-autocmd BufNewFile,BufRead *.y call matchadd("Define", "##ifdeftype")
-autocmd BufNewFile,BufRead *.y call matchadd("Define", "##ifndeftype")
-autocmd BufNewFile,BufRead *.y call matchadd("Define", "##elifdeftype")
-autocmd BufNewFile,BufRead *.y call matchadd("Define", "##elifndeftype")
-autocmd BufNewFile,BufRead *.y call matchadd("Define", "##yexe")
-autocmd BufNewFile,BufRead *.y call matchadd("Define", "##yendexe")
-autocmd BufNewFile,BufRead *.y call matchadd("Define", "##yexeonly")
-autocmd BufNewFile,BufRead *.y call matchadd("Define", "##nosym")
-autocmd BufNewFile,BufRead *.y call matchadd("Define", "##reset")
+autocmd BufNewFile,BufRead *.y call matchadd("Define",
+ \ '##ifdefvar\|##ifndefvar\|##elifdefvar\|##elifndefvar\|
+ \ ##ifdefenum\|##ifndefenum\|##elifdefenum\|##elifndefenum\|
+ \ ##ifdeffunc\|##ifndeffunc\|##elifdeffunc\|##elifndeffunc\|
+ \ ##else\|##endif\|##error\|
+ \ ##ifdeffield\|##ifndeffield\|##elifdeffield\|##elifndeffield\|
+ \ ##ifdeftype\|##ifndeftype\|##elifdeftype\|##elifndeftype\|
+ \ ##yexe\|##yendexe\|##yexeonly\|##nosym\|##reset')
 
 " highlight buildin 'class' for Ylang
-autocmd BufNewFile,BufRead *.y call matchadd("Structure", "_timer")
-autocmd BufNewFile,BufRead *.y call matchadd("Structure", "_scheduler")
-autocmd BufNewFile,BufRead *.y call matchadd("Structure", "_syscall")
-autocmd BufNewFile,BufRead *.y call matchadd("Structure", "_process")
+autocmd BufNewFile,BufRead *.y call matchadd("Structure",
+  \ '_timer\|_scheduler\|_syscall\|_process')
 
+" highlight buildin fuction for Ylang
+autocmd BufNewFile,BufRead *.y call matchadd("Define",
+  \ '_reg\|_pc_reg\|_sp_reg\|_tostr\|_tostr_quoted\|_contains\|_isprefix\|
+  \ _issuffix\|_substr\|_strtol\|_warn\|_error\|_exit\|_push\|_pop\|_shift\|
+  \ _unshift\|_elems\|printf\|sprintf\|assert\|_now_s\|_now_ms\|_now_us\|
+  \ _now_ns\|_uaddr\|_len\|_randint\|_log2\|_chop_token\|_max\|_variance\|
+  \ _min\|_sum\|_avg\|_count\|_hist_log\|_ubt\|_ubt2\|_sym_ubt\|_usym\|_print\|
+  \ puts\|fabs\|fabsf\|fmod\|fmodf\|remainder\|remainderf\|sqrt\|sqrtf\|_pid\|
+  \ _tid\|_pgid\|_actions\|_arg_long\|_execname')
 " end
 
 highlight ColorColumn ctermbg=8
